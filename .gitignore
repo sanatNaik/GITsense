@@ -1,0 +1,6 @@
+testrepo/
+backend/.venv/
+frontend/repomind/node_modules/
+frontend/repomind/.next/
+__pycache__/
+.env

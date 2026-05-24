@@ -2,8 +2,8 @@ import React from 'react'
 
 const Chat = () => {
   return (
-	<div>
-	  
+	<div className='flex justify-center items-center w-full h-[80%]'>
+		hi
 	</div>
   )
 }

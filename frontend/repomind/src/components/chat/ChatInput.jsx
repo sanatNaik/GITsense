@@ -1,12 +1,39 @@
-import React from 'react'
+import { useState } from "react";
 
-const ChatInput = () => {
+const ChatInput = ({ onSend }) => {
+  const [query, setQuery] = useState("");
+
+  const handleSend = () => {
+    if (!query.trim()) return;
+
+    onSend(query);
+    setQuery("");
+  };
+
   return (
-	<div className='flex justify-center items-center bg-gray-400 h-[20%] w-full'>
-	  <input type="text" className='bg-white w-[80%] h-[80%] text-black'/>
-	  <button className='flex w-[20%] h-[80%]'>Submit</button>
-	</div>
-  )
-}
+    <div className="flex p-4 bg-gray-200">
 
-export default ChatInput
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSend();
+          }
+        }}
+        placeholder="Ask about the repo..."
+        className="flex-1 p-3 rounded-l-lg text-black text-lg outline-none"
+      />
+
+      <button
+        onClick={handleSend}
+        className="bg-blue-500 text-white font-semibold px-5 rounded-r-lg text-lg hover:bg-blue-600"
+      >
+        Send
+      </button>
+
+    </div>
+  );
+};
+
+export default ChatInput;

@@ -1,20 +1,39 @@
-"use client"
-import React from 'react'
-import { useState } from 'react';
-import axios from 'axios';
+"use client";
 
-const RepoInput = ({onSubmit}) => {
-	const [repoUrl,setRepoUrl] = useState("");
-	function handleSubmit(e) {
-		e.preventDefault();
-		onSubmit(repoUrl);
-	}
-  return (
-	<div className='flex items-center justify-center w-full h-[10%] '>
-	  <input type="text" value={repoUrl} onChange={e => setRepoUrl(e.target.value)} name="reponame" className='flex bg-black text-white text-xl p-2 w-[80%] h-[70%]'/>
-	  <button type="submit" onClick={e => handleSubmit(e)} className='flex items-center justify-center bg-gray-200 p-2 w-[10%] h-[70%]'>Submit</button>
-	</div>
-  )
-}
+import React, { useState } from "react";
 
-export default RepoInput
+const RepoInput = ({ onSubmit }) => {
+    const [repoUrl, setRepoUrl] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!repoUrl.trim()) return;
+
+        onSubmit(repoUrl);
+    };
+
+    return (
+        <form
+            onSubmit={handleSubmit}
+            className="flex items-center justify-center w-full h-16 pb-5"
+        >
+            <input
+                type="text"
+                value={repoUrl}
+                onChange={(e) => setRepoUrl(e.target.value)}
+                placeholder="Enter GitHub repository URL"
+                className="flex bg-white text-gray-800 text-xl p-2 w-[70%] h-12 rounded-l-xl"
+            />
+
+            <button
+                type="submit"
+                className="flex items-center justify-center bg-gray-200 text-black text-xl font-bold p-2 w-[20%] h-12 rounded-r-xl hover:bg-black hover:text-white"
+            >
+                Load
+            </button>
+        </form>
+    );
+};
+
+export default RepoInput;

@@ -1,6 +1,30 @@
-testrepo/
-backend/.venv/
-frontend/repomind/node_modules/
-frontend/repomind/.next/
+# Python
 __pycache__/
+*.py[cod]
+backend/.venv/
+
+# Environment variables
 .env
+backend/.env
+
+# Cloned repositories / generated repository data
+testrepo/
+backend/testrepo/
+backend/repo_cache/
+
+# Vector database / generated indexes
+chroma_db/
+backend/chroma_db/
+*.index
+*.pkl
+
+# Next.js
+frontend/repomind/.next/
+frontend/repomind/node_modules/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

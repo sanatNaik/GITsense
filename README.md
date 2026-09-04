@@ -95,7 +95,7 @@ GitHub Repository
  Semantic Retrieval
        |
        v
- Relevant Repository Context
+ Relevant Tools Called
        |
        v
       LLM
@@ -292,12 +292,13 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-Create a `.env` file containing your required API key(s).
+Create a `.env` file containing your required API key(s) and the preferred model.
 
 Example:
 
 ```env
 OPENROUTER_API_KEY=your_api_key_here
+model = your_preferred_model
 ```
 
 Start the FastAPI server:
